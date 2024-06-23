@@ -10,10 +10,10 @@ import Harbeth
 import Kakapos
 import Photos
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, C7CollectorImageDelegate {
     @IBOutlet weak var videoView: UIImageView!
     var picker: UIImagePickerController!
-    var saveUrl: URL!
+    var saveUrl: URL! = URL.init(string: "https://file-examples.com/storage/fed5266c9966708dcaeaea6/2017/04/file_example_MP4_480_1_5MG.mp4")
     var pickedInfo: [UIImagePickerController.InfoKey : Any]!
     
     override func viewDidLoad() {
@@ -39,6 +39,10 @@ class ViewController: UIViewController {
         }
     }
     
+    func preview(_ collector: C7Collector, fliter image: Harbeth.C7Image) {
+        self.videoView.image = image
+    }
+    
     func saveVideo(videoUrl: URL) -> Void {
         let outputURL: URL = {
             let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -56,40 +60,51 @@ class ViewController: UIViewController {
             return outputURL
         }()
         
-        let exporter = Exporter.init(videoURL: videoUrl as URL, delegate: self)
+        let exporter = VideoX.init(provider: .init(with: videoUrl, to: outputURL))
         var filter2 = C7LookupTable(name: "Lagoon")
         filter2.intensity = 1.0
         var defaultLookupFilter = C7LookupTable(name: "default")
-        let filters: [C7FilterProtocol] = []
+        let filters: [C7FilterProtocol] = [filter2]
         
-        exporter.export(outputURL: outputURL) {
-            let dest = BoxxIO(element: $0, filters: filters)
+        let instruction = FilterInstruction { buffer, time, callback in
+            print("rendering... ", time)
+            let dest = HarbethIO.init(element: buffer, filters: filters)
             
-            return try? dest.output()
-        }
-    }
-}
-
-extension ViewController: ExporterDelegate {
-    func export(_ exporter: Kakapos.Exporter, success videoURL: URL) {
-        NSLog("%@", "Saved to Docs!")
-//        var isAccessing = videoURL.startAccessingSecurityScopedResource()
-        var path = videoURL.path
-        // /var/mobile/Containers/Data/Application/1DE0661A-C716-4461-A1E1-032B50190EA8/Documents/NewMovie.mov
-        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path))
-        {
-            UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(video(videoPath:error:contextInfo:)), nil);
+            return dest.transmitOutput(success: callback)
         }
         
-//        videoURL.stopAccessingSecurityScopedResource()
+        // Working without custom compositor in VideoX
+        let layersCallback = { track in
+            let t1 = CGAffineTransform(a: 0, b: 1.5, c: 1.5, d: 0, tx: 1080, ty: 0)
+            let t2 = CGAffineTransformScale(t1, 1, -1)
+            let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
+            layerInstruction.trackID = track.trackID
+            layerInstruction.setTransform(t2, at: CMTime.zero)
+            
+            return [layerInstruction]
+        } as (AVCompositionTrack) -> [AVVideoCompositionLayerInstruction]
+        let options = [
+            VideoX.Option.VideoCompositionRenderSize: CGSize(width: 1080, height: 1920),
+            VideoX.Option.VideoCompositionInstructionLayerInstructionsCallback: layersCallback
+        ] as [VideoX.Option : Any]
+        let startDate = Date()
+        
+        print("Export Started!")
+        exporter.export(options: options, instructions: [instruction], complete: { res in
+            print("Export complete! Res: ", res)
+            print("Export time: ", Date().timeIntervalSince(startDate))
+            
+            if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(outputURL.path))
+            {
+                UISaveVideoAtPathToSavedPhotosAlbum(outputURL.path, nil, #selector(self.savedComplete), nil);
+            }
+        }, progress: { progress in
+            
+        })
     }
     
-    func export(_ exporter: Kakapos.Exporter, failed error: Kakapos.Exporter.Error) {
-        NSLog("%@: %@", "Error", error.localizedDescription)
-    }
-    
-    @objc func video(videoPath: NSString, error: NSError, contextInfo: () -> Void) {
-        NSLog("%@: %@", "Error while saving in library: ", error.localizedDescription)
+    @objc func savedComplete() {
+        print("Saved!")
     }
 }
 
@@ -107,11 +122,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVPlayer.init(playerItem: playerItem)
         
-        let video = C7CollectorVideo.init(player: player) { [unowned self] in
-            let image = UIImage(cgImage: $0.cgImage!, scale: 1, orientation: .right)
-            
-            self.videoView.image = image
-        }
+        let video = C7CollectorVideo.init(player: player, delegate: self)
         
         self.saveUrl = videoUrl?.filePathURL
         

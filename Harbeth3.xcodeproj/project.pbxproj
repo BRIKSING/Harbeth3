@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		480113B62997A1180059F94C /* Kakapos in Frameworks */ = {isa = PBXBuildFile; productRef = 480113B52997A1180059F94C /* Kakapos */; };
 		4824EC4628CE25E60013FC94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EC4528CE25E60013FC94 /* AppDelegate.swift */; };
 		4824EC4828CE25E60013FC94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EC4728CE25E60013FC94 /* SceneDelegate.swift */; };
 		4824EC4A28CE25E60013FC94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824EC4928CE25E60013FC94 /* ViewController.swift */; };
@@ -20,6 +19,9 @@
 		4824EC6428CE26220013FC94 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4824EC6228CE26220013FC94 /* MetalKit.framework */; };
 		4824EC6628CE26280013FC94 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4824EC6528CE26280013FC94 /* CoreVideo.framework */; };
 		4824EC6828CE29CF0013FC94 /* DefaultMetal.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4824EC6728CE29CF0013FC94 /* DefaultMetal.metal */; };
+		48C903C92C284FDC00ABFB89 /* Kakapos in Frameworks */ = {isa = PBXBuildFile; productRef = 48C903C82C284FDC00ABFB89 /* Kakapos */; };
+		48C903CC2C28533700ABFB89 /* C7Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C903CB2C28533700ABFB89 /* C7Collector.swift */; };
+		48C903CE2C28534800ABFB89 /* C7CollectorVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C903CD2C28534800ABFB89 /* C7CollectorVideo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		4824EC6228CE26220013FC94 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		4824EC6528CE26280013FC94 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		4824EC6728CE29CF0013FC94 /* DefaultMetal.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = DefaultMetal.metal; sourceTree = "<group>"; };
+		48C903CB2C28533700ABFB89 /* C7Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C7Collector.swift; sourceTree = "<group>"; };
+		48C903CD2C28534800ABFB89 /* C7CollectorVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C7CollectorVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,7 @@
 				4824EC6628CE26280013FC94 /* CoreVideo.framework in Frameworks */,
 				4824EC6328CE26220013FC94 /* Metal.framework in Frameworks */,
 				4824EC6428CE26220013FC94 /* MetalKit.framework in Frameworks */,
-				480113B62997A1180059F94C /* Kakapos in Frameworks */,
+				48C903C92C284FDC00ABFB89 /* Kakapos in Frameworks */,
 				4824EC6028CE261A0013FC94 /* CoreImage.framework in Frameworks */,
 				4824EC5B28CE26020013FC94 /* Harbeth in Frameworks */,
 			);
@@ -75,6 +79,7 @@
 		4824EC4428CE25E60013FC94 /* Harbeth3 */ = {
 			isa = PBXGroup;
 			children = (
+				48C903CA2C2852DE00ABFB89 /* Collectors */,
 				4824EC6728CE29CF0013FC94 /* DefaultMetal.metal */,
 				4824EC4528CE25E60013FC94 /* AppDelegate.swift */,
 				4824EC4728CE25E60013FC94 /* SceneDelegate.swift */,
@@ -98,6 +103,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		48C903CA2C2852DE00ABFB89 /* Collectors */ = {
+			isa = PBXGroup;
+			children = (
+				48C903CB2C28533700ABFB89 /* C7Collector.swift */,
+				48C903CD2C28534800ABFB89 /* C7CollectorVideo.swift */,
+			);
+			path = Collectors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,7 +131,7 @@
 			name = Harbeth3;
 			packageProductDependencies = (
 				4824EC5A28CE26020013FC94 /* Harbeth */,
-				480113B52997A1180059F94C /* Kakapos */,
+				48C903C82C284FDC00ABFB89 /* Kakapos */,
 			);
 			productName = Harbeth3;
 			productReference = 4824EC4228CE25E60013FC94 /* Harbeth3.app */;
@@ -149,7 +163,7 @@
 			mainGroup = 4824EC3928CE25E60013FC94;
 			packageReferences = (
 				4824EC5928CE26020013FC94 /* XCRemoteSwiftPackageReference "Harbeth" */,
-				480113B42997A1180059F94C /* XCRemoteSwiftPackageReference "Kakapos" */,
+				48C903C72C284FDC00ABFB89 /* XCRemoteSwiftPackageReference "Kakapos" */,
 			);
 			productRefGroup = 4824EC4328CE25E60013FC94 /* Products */;
 			projectDirPath = "";
@@ -181,7 +195,9 @@
 				4824EC4A28CE25E60013FC94 /* ViewController.swift in Sources */,
 				4824EC4628CE25E60013FC94 /* AppDelegate.swift in Sources */,
 				4824EC4828CE25E60013FC94 /* SceneDelegate.swift in Sources */,
+				48C903CC2C28533700ABFB89 /* C7Collector.swift in Sources */,
 				4824EC6828CE29CF0013FC94 /* DefaultMetal.metal in Sources */,
+				48C903CE2C28534800ABFB89 /* C7CollectorVideo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,14 +442,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		480113B42997A1180059F94C /* XCRemoteSwiftPackageReference "Kakapos" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yangKJ/Kakapos";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		4824EC5928CE26020013FC94 /* XCRemoteSwiftPackageReference "Harbeth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yangKJ/Harbeth";
@@ -442,14 +450,17 @@
 				kind = branch;
 			};
 		};
+		48C903C72C284FDC00ABFB89 /* XCRemoteSwiftPackageReference "Kakapos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BRIKSING/Kakapos";
+			requirement = {
+				branch = testing;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		480113B52997A1180059F94C /* Kakapos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 480113B42997A1180059F94C /* XCRemoteSwiftPackageReference "Kakapos" */;
-			productName = Kakapos;
-		};
 		4824EC5A28CE26020013FC94 /* Harbeth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4824EC5928CE26020013FC94 /* XCRemoteSwiftPackageReference "Harbeth" */;
@@ -459,6 +470,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4824EC5928CE26020013FC94 /* XCRemoteSwiftPackageReference "Harbeth" */;
 			productName = Harbeth;
+		};
+		48C903C82C284FDC00ABFB89 /* Kakapos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48C903C72C284FDC00ABFB89 /* XCRemoteSwiftPackageReference "Kakapos" */;
+			productName = Kakapos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

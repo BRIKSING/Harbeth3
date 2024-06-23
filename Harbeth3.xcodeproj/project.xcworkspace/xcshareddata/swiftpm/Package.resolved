@@ -1,0 +1,24 @@
+{
+  "originHash" : "350dba2b20b5a6fc64324217e2faa6518a96e7c285da79ca628762c5f9984112",
+  "pins" : [
+    {
+      "identity" : "harbeth",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yangKJ/Harbeth",
+      "state" : {
+        "branch" : "master",
+        "revision" : "dc9343043cb0e41f0a0bf527aeebef73635bdb8a"
+      }
+    },
+    {
+      "identity" : "kakapos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BRIKSING/Kakapos",
+      "state" : {
+        "branch" : "testing",
+        "revision" : "057c57d25f0313d0a6ce8606a212e309712a518f"
+      }
+    }
+  ],
+  "version" : 3
+}
