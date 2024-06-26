@@ -19,6 +19,9 @@
 		4824EC6428CE26220013FC94 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4824EC6228CE26220013FC94 /* MetalKit.framework */; };
 		4824EC6628CE26280013FC94 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4824EC6528CE26280013FC94 /* CoreVideo.framework */; };
 		4824EC6828CE29CF0013FC94 /* DefaultMetal.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4824EC6728CE29CF0013FC94 /* DefaultMetal.metal */; };
+		4826A1D72C2B38A500E2277C /* CustomFilterInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4826A1D62C2B38A500E2277C /* CustomFilterInstruction.swift */; };
+		4826A1D92C2B3AE000E2277C /* CustomInstructionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4826A1D82C2B3AE000E2277C /* CustomInstructionProtocol.swift */; };
+		4874170C2C29D46F000A56E3 /* CustomVideoCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874170B2C29D46F000A56E3 /* CustomVideoCompositor.swift */; };
 		48C903C92C284FDC00ABFB89 /* Kakapos in Frameworks */ = {isa = PBXBuildFile; productRef = 48C903C82C284FDC00ABFB89 /* Kakapos */; };
 		48C903CC2C28533700ABFB89 /* C7Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C903CB2C28533700ABFB89 /* C7Collector.swift */; };
 		48C903CE2C28534800ABFB89 /* C7CollectorVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C903CD2C28534800ABFB89 /* C7CollectorVideo.swift */; };
@@ -38,6 +41,9 @@
 		4824EC6228CE26220013FC94 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		4824EC6528CE26280013FC94 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		4824EC6728CE29CF0013FC94 /* DefaultMetal.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = DefaultMetal.metal; sourceTree = "<group>"; };
+		4826A1D62C2B38A500E2277C /* CustomFilterInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterInstruction.swift; sourceTree = "<group>"; };
+		4826A1D82C2B3AE000E2277C /* CustomInstructionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInstructionProtocol.swift; sourceTree = "<group>"; };
+		4874170B2C29D46F000A56E3 /* CustomVideoCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoCompositor.swift; sourceTree = "<group>"; };
 		48C903CB2C28533700ABFB89 /* C7Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C7Collector.swift; sourceTree = "<group>"; };
 		48C903CD2C28534800ABFB89 /* C7CollectorVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C7CollectorVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +68,7 @@
 		4824EC3928CE25E60013FC94 = {
 			isa = PBXGroup;
 			children = (
+				4826A1D82C2B3AE000E2277C /* CustomInstructionProtocol.swift */,
 				4824EC4428CE25E60013FC94 /* Harbeth3 */,
 				4824EC4328CE25E60013FC94 /* Products */,
 				4824EC5E28CE261A0013FC94 /* Frameworks */,
@@ -84,6 +91,8 @@
 				4824EC4528CE25E60013FC94 /* AppDelegate.swift */,
 				4824EC4728CE25E60013FC94 /* SceneDelegate.swift */,
 				4824EC4928CE25E60013FC94 /* ViewController.swift */,
+				4874170B2C29D46F000A56E3 /* CustomVideoCompositor.swift */,
+				4826A1D62C2B38A500E2277C /* CustomFilterInstruction.swift */,
 				4824EC4B28CE25E60013FC94 /* Main.storyboard */,
 				4824EC4E28CE25E60013FC94 /* Assets.xcassets */,
 				4824EC5028CE25E60013FC94 /* LaunchScreen.storyboard */,
@@ -195,8 +204,11 @@
 				4824EC4A28CE25E60013FC94 /* ViewController.swift in Sources */,
 				4824EC4628CE25E60013FC94 /* AppDelegate.swift in Sources */,
 				4824EC4828CE25E60013FC94 /* SceneDelegate.swift in Sources */,
+				4826A1D72C2B38A500E2277C /* CustomFilterInstruction.swift in Sources */,
+				4874170C2C29D46F000A56E3 /* CustomVideoCompositor.swift in Sources */,
 				48C903CC2C28533700ABFB89 /* C7Collector.swift in Sources */,
 				4824EC6828CE29CF0013FC94 /* DefaultMetal.metal in Sources */,
+				4826A1D92C2B3AE000E2277C /* CustomInstructionProtocol.swift in Sources */,
 				48C903CE2C28534800ABFB89 /* C7CollectorVideo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,10 +368,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "../Harbeth2/Harbeth-master/Sources/Compute/**";
 				INFOPLIST_FILE = Harbeth3/Info.plist;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "${PRODUCT_NAME} allow media  library to save";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "${PRODUCT_NAME} allow document library to save";
-				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "${PRODUCT_NAME} allow media  library to save";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "${PRODUCT_NAME} allow media  library to save";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Harbeth3 allow media  library to save";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Harbeth3 allow document library to save";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "Harbeth3 allow media  library to save";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Harbeth3 allow media  library to save";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We request access to your photos to use them in A&D app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -373,7 +385,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "../Harbeth2/Harbeth-master/Sources/Compute/**";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = anditeam.andi;
+				PRODUCT_BUNDLE_IDENTIFIER = anditeam.andi89;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -393,10 +405,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "../Harbeth2/Harbeth-master/Sources/Compute/**";
 				INFOPLIST_FILE = Harbeth3/Info.plist;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "${PRODUCT_NAME} allow media  library to save";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "${PRODUCT_NAME} allow document library to save";
-				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "${PRODUCT_NAME} allow media  library to save";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "${PRODUCT_NAME} allow media  library to save";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Harbeth3 allow media  library to save";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Harbeth3 allow document library to save";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "Harbeth3 allow media  library to save";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Harbeth3 allow media  library to save";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We request access to your photos to use them in A&D app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -410,7 +422,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "../Harbeth2/Harbeth-master/Sources/Compute/**";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = anditeam.andi;
+				PRODUCT_BUNDLE_IDENTIFIER = anditeam.andi89;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

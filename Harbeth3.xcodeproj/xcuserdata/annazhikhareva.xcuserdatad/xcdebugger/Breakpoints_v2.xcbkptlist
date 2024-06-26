@@ -30,8 +30,8 @@
             filePath = "Harbeth3/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Harbeth3/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -88,16 +88,94 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5DCF8696-725D-4F7D-B121-C128A3C2E302"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Harbeth3/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "saveVideo(videoUrl:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7449BE78-EB4C-4139-A6E6-6872E5F6B23D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Harbeth3/CustomVideoCompositor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "rotateBuffer(imageBuffer:outBuffer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE2EE150-07D5-4996-BD8E-2C2214FB20E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Harbeth3/CustomVideoCompositor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "startRequest(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C14124FD-92D0-4E14-9C1C-077F86A174CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Harbeth3/CustomFilterInstruction.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "filtering(destPixelBuffer:complete:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C14124FD-92D0-4E14-9C1C-077F86A174CC - 13e58b65135dd3ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;__C.MTLTexture, Harbeth.HarbethError&gt;) -&gt; () in Harbeth.HarbethIO.filtering(destPixelBuffer: __C.CVBufferRef, complete: (Swift.Result&lt;__C.CVBufferRef, Harbeth.HarbethError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Harbeth3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/annazhikhareva/Desktop/Harbeth3/Harbeth3/Harbeth3/CustomFilterInstruction.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55">
+               </Location>
+               <Location
+                  uuid = "C14124FD-92D0-4E14-9C1C-077F86A174CC - fba6fbf7649b3e51"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.MTLTexture) -&gt; __C.CVBufferRef in closure #1 (Swift.Result&lt;__C.MTLTexture, Harbeth.HarbethError&gt;) -&gt; () in Harbeth.HarbethIO.filtering(destPixelBuffer: __C.CVBufferRef, complete: (Swift.Result&lt;__C.CVBufferRef, Harbeth.HarbethError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Harbeth3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/annazhikhareva/Desktop/Harbeth3/Harbeth3/Harbeth3/CustomFilterInstruction.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

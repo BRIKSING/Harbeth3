@@ -63,15 +63,21 @@ class ViewController: UIViewController, C7CollectorImageDelegate {
         let exporter = VideoX.init(provider: .init(with: videoUrl, to: outputURL))
         var filter2 = C7LookupTable(name: "Lagoon")
         filter2.intensity = 1.0
-        var defaultLookupFilter = C7LookupTable(name: "default")
-        let filters: [C7FilterProtocol] = [filter2]
+        let filters: [C7FilterProtocol] = [filter2, C7Rotate(angle: 90)]
         
-        let instruction = FilterInstruction { buffer, time, callback in
+        let instruction = CustomFilterInstruction(callback: { sourceBuffer, destBuffer, time, callback in
             print("rendering... ", time)
-            let dest = HarbethIO.init(element: buffer, filters: filters)
+            let dest = HarbethIO.init(element: sourceBuffer, filters: filters)
             
-            return dest.transmitOutput(success: callback)
-        }
+            return dest.filtering(destPixelBuffer: destBuffer, complete: { res in
+                switch res {
+                case .success(let result):
+                    callback(result)
+                case .failure(let error): break
+                    
+                }
+            })
+        })
         
         // Working without custom compositor in VideoX
         let layersCallback = { track in
@@ -84,8 +90,9 @@ class ViewController: UIViewController, C7CollectorImageDelegate {
             return [layerInstruction]
         } as (AVCompositionTrack) -> [AVVideoCompositionLayerInstruction]
         let options = [
-            VideoX.Option.VideoCompositionRenderSize: CGSize(width: 1080, height: 1920),
-            VideoX.Option.VideoCompositionInstructionLayerInstructionsCallback: layersCallback
+//            VideoX.Option.VideoCompositionRenderSize: CGSize(width: 1080, height: 1920),
+            VideoX.Option.VideoCompositionCustomCompositor: CustomVideoCompositor.self
+//            VideoX.Option.VideoCompositionInstructionLayerInstructionsCallback: layersCallback
         ] as [VideoX.Option : Any]
         let startDate = Date()
         
