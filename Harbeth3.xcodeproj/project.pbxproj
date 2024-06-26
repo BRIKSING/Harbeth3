@@ -68,7 +68,6 @@
 		4824EC3928CE25E60013FC94 = {
 			isa = PBXGroup;
 			children = (
-				4826A1D82C2B3AE000E2277C /* CustomInstructionProtocol.swift */,
 				4824EC4428CE25E60013FC94 /* Harbeth3 */,
 				4824EC4328CE25E60013FC94 /* Products */,
 				4824EC5E28CE261A0013FC94 /* Frameworks */,
@@ -92,6 +91,7 @@
 				4824EC4728CE25E60013FC94 /* SceneDelegate.swift */,
 				4824EC4928CE25E60013FC94 /* ViewController.swift */,
 				4874170B2C29D46F000A56E3 /* CustomVideoCompositor.swift */,
+				4826A1D82C2B3AE000E2277C /* CustomInstructionProtocol.swift */,
 				4826A1D62C2B38A500E2277C /* CustomFilterInstruction.swift */,
 				4824EC4B28CE25E60013FC94 /* Main.storyboard */,
 				4824EC4E28CE25E60013FC94 /* Assets.xcassets */,
